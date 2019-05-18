@@ -13,51 +13,175 @@ and open the template in the editor.
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
     </head>
     <script>
-    p1=0;
-    p2=0;
-    p3=0;
-    a=0;
-    
-    function pro1() {
+        var arrayNumbers = [];
+        var t = [];
+        p1 = 0;
+        p2 = 0;
+        p3 = 0;
+        p4 = 0;
+        p5 = 0;
+        p6 = 0;
 
-            //p1=document.getElementById("p1").value;
-            p1++;
-            console.log(p1,p2,p3);
-            a=Math.max(p1,p2,p3);
-            console.log(a);
-            
+        var t = [pd1 = p1, pd2 = p2, pd3 = p3, pd4 = p4, pd5 = p5, pd6 = p6];
+
+        m = 0;
+        var x = 0;
+        var y = 0;
+        var z = 0;
+        $(function () {
+            $(document).on('click', 'input[type="button"]', function (event) {
+                let id = this.id;
+                console.log("Se presionó el Boton con Id :" + id);
+                if (id == "p1") {
+                    p1++;
+                } else if (id == "p2") {
+                    p2++;
+                } else if (id == "p3") {
+                    p3++;
+                } else if (id == "p4") {
+                    p4++;
+                } else if (id == "p5") {
+                    p5++;
+                } else if (id == "p6") {
+                    p6++;
+                }
+                m = Math.max(p1, p2, p3, p4, p5, p6);
+//                console.log(m);
+                t = [pd1 = p1, pd2 = p2, pd3 = p3, pd4 = p4, pd5 = p5, pd6 = p6];
+                if (m == p1) {
+
+                    document.getElementById("img").src = "p1.png";
+                    document.getElementById("p_1").value = "PRODUCTO1";
+                } else if (m == p2) {
+                    document.getElementById("p_1").value = "PRODUCTO2";
+                    document.getElementById("img").src = "p2.png";
+                } else if (m == p3) {
+                    document.getElementById("p_1").value = "PRODUCTO3";
+                    document.getElementById("img").src = "p3.png";
+                } else if (m == p4) {
+                    document.getElementById("p_1").value = "PRODUCTO4";
+                    document.getElementById("img").src = "p4.png";
+                } else if (m == p5) {
+                    document.getElementById("p_1").value = "PRODUCTO5";
+                    document.getElementById("img").src = "p5.png";
+                } else if (m == p6) {
+                    document.getElementById("p_1").value = "PRODUCTO6";
+                    document.getElementById("img").src = "p6.png";
+                }
+
+
+
+                arrayNumbers = [p1, p2, p3, p4, p5, p6];
+                arrayNumbers.sort(function (a, b) {
+                    return a - b;
+                });
+                x = arrayNumbers[5];
+                y = arrayNumbers[4];
+                z = arrayNumbers[3];
+
+                for (var i = 0; i <= 6; i++) {
+
+                    if(x==t[i]){
+                      pp =t[i].toLocaleString();
+                        console.log(pp);
         }
-    function pro2() {
+                }
+            });
+        });
 
-            //p2=document.getElementById("p2").value;
-            p2++;
-            console.log(p1,p2,p3);
-            a=Math.max(p1,p2,p3);
-            console.log(a);
-
-    }
-    function pro3() {
-
-            //p3=document.getElementById("p3").value;
-            p3++;
-                console.log(p1,p2,p3);
-            a= Math.max(p1,p2,p3);
-            console.log(a);
-
-    }
 
     </script>
 
     <body>
+        <h1 align="center" class="card-title">PRODUCTOS EN VENTA</h1>
+        <div class="card">
+            <div class="card-body">
+
+                <table cellspacing="50" >
+                    <tr>
+                        <td cellspacing="15px"><div class="card" style="width: 15rem;">
+                                <img src="p1.png" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cajas Blancas</h5>
+                                    <p class="card-text">Cajas con las siguientes dimensiones:<br> 50cm X 30cm X 20cm  </p>
+                                    <input type="button"  id="p1" value="comprar" class="btn btn-primary ">
+                                </div>
+                            </div>
+                        </td>
+                        <td><div class="card" style="width: 15rem;">
+                                <img src="p2.png" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cajas Rojas</h5>
+                                    <p class="card-text">Cajas con las siguientes dimensiones:<br> 20cm X 30cm X 50cm .</p>
+                                    <input type="button" id="p2" value="comprar" class="btn btn-primary">
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="card" style="width: 15rem;">
+                                <img src="p3.png" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cajas Amarillas</h5>
+                                    <p class="card-text">Cajas con las siguientes dimensiones:<br> 30cm X 50cm X 10cm .</p>
+                                    <input type="button" id="p3" value="comprar" class="btn btn-primary">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="card" style="width: 15rem;">
+                                <img src="p4.png" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cajas Fedex</h5>
+                                    <p class="card-text">Cajas con las siguientes dimensiones:<br> 30cm X 50cm X 10cm .</p>
+                                    <input type="button" id="p4" value="comprar" class="btn btn-primary">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="card" style="width: 15rem;">
+                                <img src="p5.png" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cajas Madera tapa</h5>
+                                    <p class="card-text">Cajas con las siguientes dimensiones:<br> 80cm X 50cm X 10cm .</p>
+                                    <input type="button" id="p5" value="comprar" class="btn btn-primary">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="card" style="width: 15rem;">
+                                <img src="p6.png" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cajas Madera tapa</h5>
+                                    <p class="card-text">Cajas con las siguientes dimensiones:<br> 30cm X 50cm X 80cm .</p>
+                                    <input type="button" id="p6" value="comprar" class="btn btn-primary">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+
+
+            </div>
+        </div>
+
+
+        <div id="su">
+
+        </div>
+        <!--        <img id="img" src="p2.png">-->
+
         <div class="container">
-            <h4>Productos:</h4>
-            <button id="p1" name="p1" type="button" class="btn btn-primary" value="1" onclick="pro1()">producto1</button>
-            <button id="p2" name="p2" type="button" class="btn btn-primary" value="1" onclick="pro2()">produto2</button>
-            <button id="p3" name="p3" type="button" class="btn btn-primary" value="1"onclick="pro3()">producto3</button>
+            <h4>Productos Sugeridos:</h4>
+            <input type="button" id="p_1" name="p1" type="button" class="btn btn-primary" value="PRODUCTO1"> </INPUT><br><img id="img" src="p1.png" alt=""/>
+
+            <!--             <input type="button" id="p2" name="p2" type="button" class="btn btn-primary" value="PRODUCTO2" onclick="pro2()"><img src="p2.png" alt=""/></input>
+                         <input type="button" id="p3" name="p3" type="button" class="btn btn-primary" value="PRODUCTO3"onclick="pro3()"><img src="p3.png" alt=""/></input>-->
 
         </container>
 
